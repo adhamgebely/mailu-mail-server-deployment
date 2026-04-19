@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+
+  front:
+    image: mailu/nginx:latest
+    restart: always
+    env_file: mailu.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/certs
+    depends_on:
+      - admin
+      - smtp
+      - imap
+
+  admin:
+    image: mailu/admin:latest
+    restart: always
+    env_file: mailu.env
+    volumes:
+      - ./data:/data
+
+  smtp:
+    image: mailu/postfix:latest
+    restart: always
+    env_file: mailu.env
+    ports:
+      - "25:25"
+      - "587:587"
+      - "465:465"
+
+  imap:
+    image: mailu/dovecot:latest
+    restart: always
+    env_file: mailu.env
+    ports:
+      - "143:143"
+      - "993:993"
+
+  webmail:
+    image: mailu/roundcube:latest
+    restart: always
+    env_file: mailu.env
+    depends_on:
+      - imap
