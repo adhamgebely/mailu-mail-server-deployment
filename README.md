@@ -259,32 +259,6 @@ Root causes included:
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots such as:
-
-* Mailu Admin UI
-* Roundcube login
-* Compose email
-* Inbox with internal email
-* Reply thread
-* Gmail delivery test
-* Mail Tester result
-
-Example structure:
-
-```text
-assets/
-├── 1-admin-ui.png
-├── 2-webmail-login.png
-├── 3-compose.png
-├── 4-inbox.png
-├── 5-reply.png
-├── 6-gmail-test.png
-└── 7-mail-tester.png
-```
-
----
 
 ## 🔐 Disclaimer
 
